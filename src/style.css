@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@theme {
+  --color-page: #0f0f14;
+  --color-surface: #1a1a24;
+  --color-accent: #7c5cfc;
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-muted: #8b8b9e;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --color-page: #0f0f14;
+  --color-sidebar: #0f0f14;
+  --color-header: #0f0f14;
+  --color-surface: #1a1a24;
+  --color-card-border: #2a2a3a;
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #8b8b9e;
+  --color-text-tertiary: #6b7280;
+  --color-input-bg: rgba(255, 255, 255, 0.06);
+  --color-input-border: rgba(255, 255, 255, 0.1);
+  --color-control-bg: rgba(255, 255, 255, 0.06);
+}
+
+#root.theme-dark {
+  color-scheme: dark;
+}
+
+#root.theme-light {
+  color-scheme: light;
+  --color-page: #f0f4ff;
+  --color-sidebar: #ffffff;
+  --color-header: #ffffff;
+  --color-surface: #ffffff;
+  --color-card-border: #e5e7eb;
+  --color-border-subtle: #e5e7eb;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6b7280;
+  --color-text-tertiary: #6b7280;
+  --color-input-bg: #f9fafb;
+  --color-input-border: #e5e7eb;
+  --color-control-bg: #f3f4f6;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-page);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: var(--color-page);
+}
+
+.theme-input {
+  background-color: var(--color-input-bg);
+  border-color: var(--color-input-border);
+  color: var(--color-text-primary);
+}
+
+.theme-input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.theme-option {
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+.theme-accent-text {
+  color: #ffffff !important;
+}
+
+.theme-date-input {
+  color-scheme: dark;
+}
+
+#root.theme-light .theme-date-input {
+  color-scheme: light;
+}
+
+#root.theme-light [class*="text-white"] {
+  color: var(--color-text-primary);
+}
+
+#root.theme-light [class*="text-gray-200"],
+#root.theme-light [class*="text-gray-300"],
+#root.theme-light [class*="text-gray-400"] {
+  color: var(--color-text-secondary);
+}
+
+#root.theme-light [class*="text-gray-500"],
+#root.theme-light [class*="text-gray-600"] {
+  color: var(--color-text-tertiary);
+}
+
+#root.theme-light [class*="border-white/"] {
+  border-color: var(--color-card-border);
+}
+
+#root.theme-light [class*="divide-white/"] > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--color-card-border);
+}
+
+#root.theme-light [class*="bg-white/[0.04]"],
+#root.theme-light [class*="bg-white/[0.03]"],
+#root.theme-light [class*="bg-white/[0.06]"],
+#root.theme-light [class*="bg-white/[0.08]"],
+#root.theme-light [class*="bg-white/5"],
+#root.theme-light [class*="bg-white/10"] {
+  background-color: var(--color-control-bg);
+}
+
+#root.theme-light aside [class*="text-gray-400"] {
+  color: #374151;
+}
+
+#root.theme-light aside [class*="text-gray-500"] {
+  color: #6b7280;
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-fade-in {
+  animation: page-fade-in 0.3s ease-out both;
+}
